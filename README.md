@@ -1,6 +1,6 @@
 # circle_bouncing
 
-## features
+## Features
 
 - Bounces back when it hits the edge
 
