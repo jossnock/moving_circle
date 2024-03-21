@@ -150,7 +150,7 @@ while running:
             elif circle_y_velocity < 0:
                 circle_y_velocity += CIRCLE_Y_VELOCITY_MULTIPLIER
     
-    def randomise_colours(interval):
+    def randomise_circle_colours(interval):
         """Pass in the interval you want the colours to vary by (0 <= interval <= 255))
         Randomises circle_colour_1, 2, 3, and 4
         Each colour's red value should be similar to the other colour's red values, same for green and blue"""
@@ -166,13 +166,13 @@ while running:
         global circle_colour_4
         circle_colour_4 = (random_colour_r + random.randint(-interval, interval), random_colour_g + random.randint(-interval, interval), random_colour_b + random.randint(-interval, interval))
 
-    # if it hits an edge it bounces and randomises the circle colours
+    # if the circle hits an edge it bounces and randomises its colours
     if circle_centre_x + CIRCLE_RADIUS >= SCREEN_WIDTH or circle_centre_x - CIRCLE_RADIUS <= 0:
         circle_x_velocity = -circle_x_velocity
-        randomise_colours(COLOUR_INTERVAL)
+        randomise_circle_colours(COLOUR_INTERVAL)
     if circle_centre_y + CIRCLE_RADIUS >= SCREEN_HEIGHT or circle_centre_y - CIRCLE_RADIUS <= 0:
         circle_y_velocity = -circle_y_velocity
-        randomise_colours(COLOUR_INTERVAL)
+        randomise_circle_colours(COLOUR_INTERVAL)
     
     # flip() the display to put the work on screen
     pygame.display.flip()
