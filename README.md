@@ -1,6 +1,6 @@
 # circle_bouncing
 
-Displays a moving circle using pygame.
+Renders a moving circle using pygame.
 
 ## Features
 
