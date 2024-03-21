@@ -10,7 +10,7 @@ Renders a moving circle using pygame.
 
 - Randomises circle colours when it bounces, with the 4 different colours within an interval of RGB values (i.e. they don't contrast with eachother too much)
 
-- Starting angle of movement can be altered
+- Starting angle of movement (in radians) can be altered
 
 - Circle acceleration can be altered
 
@@ -28,3 +28,6 @@ Renders a moving circle using pygame.
 
 - Press - to disable and clear trail
 
+## Todo
+
+- Add capability for angles smaller than 0 and larger than 2 pi
