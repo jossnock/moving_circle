@@ -166,7 +166,7 @@ while running:
         global circle_colour_4
         circle_colour_4 = (random_colour_r + random.randint(-interval, interval), random_colour_g + random.randint(-interval, interval), random_colour_b + random.randint(-interval, interval))
 
-    # bounces, if it hits an edge and randomises the circle colours
+    # if it hits an edge it bounces and randomises the circle colours
     if circle_centre_x + CIRCLE_RADIUS >= SCREEN_WIDTH or circle_centre_x - CIRCLE_RADIUS <= 0:
         circle_x_velocity = -circle_x_velocity
         randomise_colours(COLOUR_INTERVAL)
