@@ -12,13 +12,13 @@ Renders a moving circle using pygame.
 
 ## Initial Inputs
 
-- Circle radius
+- Circle radius (default is 128
 
-- Circle thickness
+- Circle thickness (default is radius DIV 32)
 
-- Circle acceleration
+- Circle acceleration (default is 1)
 
-- Circle movement angle (in radians)
+- Circle movement angle (in radians) (default is pi/4)
 
 ## Controls
 
@@ -26,9 +26,9 @@ Renders a moving circle using pygame.
 
 - Press BACKSPACE to slow down the circle
 
-- Press , to enable light mode (default)
+- Press , to enable light mode (default) (will clear trail when enabled)
 
-- Press . to enable dark mode
+- Press . to enable dark mode (will clear trail when enabled)
 
 - Press = to enable trail
 
