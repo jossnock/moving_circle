@@ -10,9 +10,15 @@ Renders a moving circle using pygame.
 
 - Randomises circle colours when it bounces, with the 4 different colours within an interval of RGB values (i.e. they don't contrast with eachother too much)
 
-- Starting angle of movement (in radians) can be altered
+## Initial Inputs
 
-- Circle acceleration can be altered
+- Circle radius
+
+- Circle thickness
+
+- Circle acceleration
+
+- Circle movement angle (in radians)
 
 ## Controls
 
