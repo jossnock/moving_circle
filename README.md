@@ -1,5 +1,7 @@
 # circle_bouncing
 
+Displays a moving circle using pygame
+
 ## Features
 
 - Bounces back when it hits the edge
