@@ -36,4 +36,6 @@ Renders a moving circle using pygame.
 
 ## Todo
 
+- Fix circle movement angle changer
+
 - Add capability for angles smaller than 0 and larger than 2 pi
