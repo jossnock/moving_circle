@@ -12,19 +12,13 @@ CLOCK = pygame.time.Clock()
 running = True
 FPS = 60
 
-# optional inputs for customisation
-CIRCLE_RADIUS = input("Input the radius of the circle")
-CIRCLE_THICKNESS = input("Input the thickness of the circle (0 for a filled circle)")
-CIRCLE_ACCELERATION = input("Input the acceleration of the circle")
-CIRCLE_MOVEMENT_ANGLE = input("Input the movement angle of the circle (in radians, between 0 and 2 pi)")
-
 # circle details
 circle_centre_x = SCREEN_WIDTH // 2
 circle_centre_y = SCREEN_HEIGHT // 2
-if CIRCLE_RADIUS == "":
-    CIRCLE_RADIUS = 128
-if CIRCLE_THICKNESS == "":
-    CIRCLE_THICKNESS = 4
+try: CIRCLE_RADIUS = int(input("Input the radius of the circle"))
+except: CIRCLE_RADIUS = 128
+try: CIRCLE_THICKNESS = int(input("Input the thickness of the circle (0 for a filled circle)"))
+except: CIRCLE_THICKNESS = CIRCLE_RADIUS // 32
 
 circle_colour_1 = "white"
 circle_colour_2 = (85, 85, 85)
@@ -34,15 +28,15 @@ COLOUR_INTERVAL = 48
 
 is_trail_visible = False
 
-if CIRCLE_ACCELERATION == "":
-    CIRCLE_ACCELERATION = 1
+try: CIRCLE_ACCELERATION = int(input("Input the acceleration of the circle"))
+except: CIRCLE_ACCELERATION = 1
 INITIAL_CIRCLE_X_VELOCITY_SIGN = 1
 INITIAL_CIRCLE_Y_VELOCITY_SIGN = 1
 CIRCLE_X_VELOCITY_MULTIPLIER = 1 * CIRCLE_ACCELERATION
 CIRCLE_Y_VELOCITY_MULTIPLIER = 1 * CIRCLE_ACCELERATION
 
-if CIRCLE_MOVEMENT_ANGLE == "":
-    CIRCLE_MOVEMENT_ANGLE = (1/4) * math.pi # angle (in radians) clockwise from the horizontal that the circle starts moving at
+try: CIRCLE_MOVEMENT_ANGLE = int(input("Input the movement angle of the circle (in radians, between 0 and 2 pi)"))
+except: CIRCLE_MOVEMENT_ANGLE = (1/4) * math.pi
 
 # circle velocity calculations; if angle > pi/2, a change of sign is required; if angle == pi/2 or 3pi/2, x velocity = 0
 if ((3/2) * math.pi) < CIRCLE_MOVEMENT_ANGLE <= (2 * math.pi): # 1st quadrant
@@ -80,8 +74,10 @@ while running:
     # change background colour
     if (keys[pygame.K_COMMA]):
         screen_colour = "white"
+        SCREEN.fill(screen_colour)
     if (keys[pygame.K_PERIOD]):
         screen_colour = "black"
+        SCREEN.fill(screen_colour)
     
     # toggle circle trail
     if (keys[pygame.K_EQUALS]):
@@ -94,7 +90,7 @@ while running:
         SCREEN.fill(screen_colour)
 
     # renders the circle
-    for i in range(CIRCLE_RADIUS // CIRCLE_THICKNESS): # makes a multi-coloured circle and fills it with lines
+    for i in range((CIRCLE_RADIUS // CIRCLE_THICKNESS) + 1): # makes a multi-coloured circle and fills it with lines
         if i % 4 == 0:
             pygame.draw.circle(SCREEN, circle_colour_1, (circle_centre_x,circle_centre_y), CIRCLE_RADIUS - (i * CIRCLE_THICKNESS), CIRCLE_THICKNESS, True)
             pygame.draw.circle(SCREEN, circle_colour_2, (circle_centre_x,circle_centre_y), CIRCLE_RADIUS - (i * CIRCLE_THICKNESS), CIRCLE_THICKNESS, False, True)
