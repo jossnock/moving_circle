@@ -13,12 +13,17 @@ running = True
 FPS = 60
 
 # circle details
+BYPASS_INITIAL_INPUTS = True
 circle_centre_x = SCREEN_WIDTH // 2
 circle_centre_y = SCREEN_HEIGHT // 2
-try: CIRCLE_RADIUS = int(input("Input the radius of the circle"))
-except: CIRCLE_RADIUS = 128
-try: CIRCLE_THICKNESS = int(input("Input the thickness of the circle (0 for a filled circle)"))
-except: CIRCLE_THICKNESS = CIRCLE_RADIUS // 32
+if BYPASS_INITIAL_INPUTS == False:
+    try: CIRCLE_RADIUS = int(input("Input the radius of the circle"))
+    except: CIRCLE_RADIUS = 128
+    try: CIRCLE_THICKNESS = int(input("Input the thickness of the circle (0 for a filled circle)"))
+    except: CIRCLE_THICKNESS = CIRCLE_RADIUS // 32
+else:
+    CIRCLE_RADIUS = 128
+    CIRCLE_THICKNESS = CIRCLE_RADIUS // 32
 
 circle_colour_1 = "white"
 circle_colour_2 = (85, 85, 85)
@@ -28,15 +33,20 @@ COLOUR_INTERVAL = 48
 
 is_trail_visible = False
 
-try: CIRCLE_ACCELERATION = int(input("Input the acceleration of the circle"))
-except: CIRCLE_ACCELERATION = 1
+if BYPASS_INITIAL_INPUTS == False:
+    try: CIRCLE_ACCELERATION = int(input("Input the acceleration of the circle"))
+    except: CIRCLE_ACCELERATION = 1
+else:
+    CIRCLE_ACCELERATION = 1
 INITIAL_CIRCLE_X_VELOCITY_SIGN = 1
 INITIAL_CIRCLE_Y_VELOCITY_SIGN = 1
 CIRCLE_X_VELOCITY_MULTIPLIER = 1 * CIRCLE_ACCELERATION
 CIRCLE_Y_VELOCITY_MULTIPLIER = 1 * CIRCLE_ACCELERATION
 
-try: CIRCLE_MOVEMENT_ANGLE = int(input("Input the movement angle of the circle (in radians, between 0 and 2 pi)"))
-except: CIRCLE_MOVEMENT_ANGLE = (1/4) * math.pi
+if BYPASS_INITIAL_INPUTS == False:
+    try: CIRCLE_MOVEMENT_ANGLE = int(input("Input the movement angle of the circle (in radians, between 0 and 2 pi)"))
+    except: CIRCLE_MOVEMENT_ANGLE = (1/4) * math.pi
+else: CIRCLE_MOVEMENT_ANGLE = (1/4) * math.pi
 
 # circle velocity calculations; if angle > pi/2, a change of sign is required; if angle == pi/2 or 3pi/2, x velocity = 0
 if ((3/2) * math.pi) < CIRCLE_MOVEMENT_ANGLE <= (2 * math.pi): # 1st quadrant
