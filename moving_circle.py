@@ -11,9 +11,9 @@ SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 CLOCK = pygame.time.Clock()
 running = True
 FPS = 60
+BYPASS_INITIAL_INPUTS = True # skips the initial input stage
 
 # circle details
-BYPASS_INITIAL_INPUTS = True
 circle_centre_x = SCREEN_WIDTH // 2
 circle_centre_y = SCREEN_HEIGHT // 2
 if BYPASS_INITIAL_INPUTS == False:
